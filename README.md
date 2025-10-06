@@ -1,13 +1,14 @@
 # ArgoCD memory optimization test
 
 ## install ArgoCD 
-helm upgrade --install argocd . -nargocd --atomic
+helm upgrade --install argocd ./argocd -nargocd --atomic
 
 ## make argocd self-host
 
 apply the following manifest
 
-```yaml
+```shell
+kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -26,8 +27,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
-```
+EOF```
 
 ## how to sync argocd changes
 we don't use app of apps here, manually sync is required.
