@@ -28,6 +28,12 @@ argo-cd:
       controller.operation.processors: "10"
       controller.profile.enabled: "true"
     cm:
+      resource.customizations: |
+        Pod:
+          ignoreResourceUpdates: |
+            jsonPointers:
+              - /status
+
       resource.inclusions: |
         - apiGroups:
             - ""
