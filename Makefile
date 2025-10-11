@@ -32,8 +32,8 @@ sync-guestbook-apps: ## Sync guestbook applications
 delete-guestbook-apps: ## Delete guestbook applications
 	@$(call check_context)
 	@echo "Deleting guestbook apps..."
-	@for i in {0..40}; do \
-		$(KUBECTL) delete application guestbook-$i -n argocd; \
+	for i in $$(seq 1 40); do \
+		$(KUBECTL) delete application guestbook-$$i -n argocd; \
 	done
 
 get-argocd-password: ## Get ArgoCD initial admin password
