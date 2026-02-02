@@ -1,5 +1,9 @@
 # ArgoCD memory optimization test
 
+## Results
+
+[result](./results/argocd-memory-optimization-test.md)
+
 ## install ArgoCD 
 helm upgrade --install argocd ./argocd -nargocd --atomic
 
