@@ -32,7 +32,7 @@ sync-guestbook-apps: ## Sync guestbook applications
 delete-guestbook-apps: ## Delete guestbook applications
 	@$(call check_context)
 	@echo "Deleting guestbook apps..."
-	for i in $$(seq 1 40); do \
+	for i in $$(seq 0 99); do \
 		$(KUBECTL) delete application guestbook-$$i -n argocd; \
 	done
 

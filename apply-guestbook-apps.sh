@@ -2,13 +2,15 @@
 
 # A simple Bash script to generate ArgoCD Application YAMLs.
 
-for i in {0..40}; do
+for i in {0..99}; do
   cat << EOF | kubectl apply -f -
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook-$i
   namespace: argocd
+  labels:
+    app: guestbook
 spec:
   destination:
     namespace: guestbook-$i
